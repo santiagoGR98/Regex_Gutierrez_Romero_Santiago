@@ -34,13 +34,13 @@ db.ciudades.find({ nombre: {$regex: /^M./i}})
 
 /*Para realizar una consulta en la que queramos buscar una ciudad que sea igual a 250km de ancho y su nombre
 acabe por "a" tendremos que ejecutar la siguiente consulta*/
-db.ciudades.find( { $and: [{ extension,w: { $eq: 250 }}, { nombre: { $regex: /$a/ }}]} )
+db.ciudades.find( { $and: [{ extension.w: { $eq: 250 }}, { nombre: { $regex: /$a/ }}]} )
 
 /*Si queremos hacer esta misma consulta anterior pero deseamos que la extension sea diferentes de 250 la consulta quedará así  */
-db.ciudades.find( { $and: [{ extension,w: { $ne: 250 }}, { nombre: { $regex: /$a/ }}]} )
+db.ciudades.find( { $and: [{ extension.w: { $ne: 250 }}, { nombre: { $regex: /$a/ }}]} )
 
 /*Si queremos hacer una consulta igual a la anterior pero deseamos que en la cadena numerica de extension no contenga un 5 tendremos que ejecutar lo siguiente*/
-db.ciudades.find( { $and: [{ extension,w: { $nin: 5 }}, { nombre: { $regex: /$a/ }}]})
+db.ciudades.find( { $and: [{ extension.w: { $nin: 5 }}, { nombre: { $regex: /$a/ }}]})
 
 /*Para realizar una consulta que muestre una ciudad que empieze con L y acabe con l tendremos que ejecutar lo siguiente*/
 db.ciudades.find( { $and: [{ nombre: { $regex: /^L/ }}, { nombre: { $regex: /$l/ }}]})
